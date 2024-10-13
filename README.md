@@ -30,25 +30,12 @@ javascript
 Copy code
 function calculateTotalTarget(startDate, endDate, totalAnnualTarget)
 Example
-javascript
-Copy code
-console.log(calculateTotalTarget('2024-01-01', '2024-03-31', 5220));
-Output
-json
-Copy code
-{
-  "daysWorkedExcludingFridays": [
-    22,
-    20,
-    21
-  ],
-  "monthlyTargets": [
-    435,
-    435,
-    435
-  ],
-  "totalTarget": 5220
-}
+ { "daysWorkedExcludingFridays": [Number, ...], // Array of working days per month (excluding Fridays) "monthlyTargets": [Number, ...]
+ , // Array of monthly targets for months with working days "totalTarget": Number // Sum of all the distributed monthly targets }
+ Example javascript console.log(calculateTotalTarget('2024-01-01', '2024-03-31', 5220)); Output:
+
+json { "daysWorkedExcludingFridays": [ 22, // January 21, // February 21 // March ], "monthlyTargets": [ 435, // January 435, // February 435 // March ], "totalTarget": 1305 // Sum of monthly targets for January to March }
+
 How it works
 Input Parsing: The function begins by converting the input startDate and endDate into Date objects.
 Date Iteration: It loops through each day in the specified date range and checks if the day is not a Friday (day 5 in JavaScript's Date.getDay() method). If it's not a Friday, the day is counted for that month.
@@ -59,25 +46,14 @@ The monthly target for each month with working days.
 The total target, which is the sum of the monthly targets.
 Assumptions
 The function assumes that the totalAnnualTarget is evenly distributed across all months, regardless of the number of days worked in each month.
-Only working days excluding Fridays are considered.
+Only working days excluding Fridays are considered
+
 Limitations
 The function does not consider public holidays or any other non-working days apart from Fridays.
 The annual target is evenly divided across the months without adjusting for the actual number of working days in each month.
 Running the Code
 To run the code, follow these steps:
 
-Clone the repository from GitHub:
-bash
-Copy code
-git clone <your-repo-url>
-Navigate to the project folder:
-bash
-Copy code
-cd project-folder
-Open the file in a text editor or run it using Node.js:
-bash
-Copy code
-node filename.js
 Repository Link
 Add your GitHub repository link here once you upload the project.
 
